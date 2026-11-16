@@ -4,12 +4,14 @@ export interface NavbarProps {
   onCartClick?: () => void;
   onHistoryClick?: () => void;
   onAccountClick?: () => void;
+  cartItemCount?: number;
 }
 
 export default function Navbar({
   onCartClick,
   onHistoryClick,
   onAccountClick,
+  cartItemCount = 0,
 }: NavbarProps) {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200">
@@ -135,8 +137,8 @@ export default function Navbar({
             type="button"
             onClick={onCartClick}
             className="relative w-10 h-10 rounded-full bg-[#382218] hover:bg-[#4a2e21] text-white flex items-center justify-center transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 cursor-pointer"
-            title="Giỏ hàng (Chức năng sẽ được triển khai ở Task 5)"
-            aria-label="Giỏ hàng - Sắp ra mắt ở Task 5"
+            title="Mở giỏ hàng"
+            aria-label={`Giỏ hàng (${cartItemCount} món)`}
           >
             <svg
               className="w-5 h-5"
@@ -152,8 +154,11 @@ export default function Navbar({
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-amber-600 text-white text-[11px] font-bold flex items-center justify-center shadow-sm">
-              0
+            <span
+              aria-live="polite"
+              className="absolute -top-1 -right-1 min-w-5 h-5 px-1 rounded-full bg-amber-600 text-white text-[11px] font-bold flex items-center justify-center shadow-sm"
+            >
+              {cartItemCount}
             </span>
           </button>
         </div>

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { fetchProducts, filterProducts } from '../lib/api';
+import type { CartItemSelection } from '../types/cart';
 import type { CategoryFilter, Product } from '../types/product';
 import CategoryFilterComponent from './CategoryFilter';
 import EmptyState from './EmptyState';
@@ -9,14 +10,21 @@ import ErrorState from './ErrorState';
 import HeroBanner from './HeroBanner';
 import LoadingSkeleton from './LoadingSkeleton';
 import ProductGrid from './ProductGrid';
+import ProductDetailModal from './ProductDetailModal';
 import SearchBar from './SearchBar';
 import ToastNotice from './ToastNotice';
 
 export interface MenuPageProps {
+  onAddToCart: (selection: CartItemSelection) => void;
+  onQuickAdd: (product: Product) => void;
   onNotice?: (message: string) => void;
 }
 
-export default function MenuPage({ onNotice }: MenuPageProps) {
+export default function MenuPage({
+  onAddToCart,
+  onQuickAdd,
+  onNotice,
+}: MenuPageProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -24,6 +32,7 @@ export default function MenuPage({ onNotice }: MenuPageProps) {
     useState<CategoryFilter>('Tất cả');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [localNotice, setLocalNotice] = useState<string | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const showNotice = useCallback(
     (msg: string) => {
@@ -93,15 +102,13 @@ export default function MenuPage({ onNotice }: MenuPageProps) {
   );
 
   const handleCustomize = (product: Product) => {
-    showNotice(
-      `Tính năng tùy chỉnh Size (S/M/L) và Topping cho món "${product.name}" sẽ được triển khai ở Task 4.`,
-    );
+    setSelectedProduct(product);
   };
 
-  const handleQuickAdd = (product: Product) => {
-    showNotice(
-      `Tính năng thêm nhanh món "${product.name}" vào Giỏ hàng sẽ được triển khai ở Task 5.`,
-    );
+  const handleAddConfiguredItem = (selection: CartItemSelection) => {
+    onAddToCart(selection);
+    setSelectedProduct(null);
+    showNotice(`Đã thêm ${selection.quantity} × ${selection.product.name} vào giỏ hàng.`);
   };
 
   const handleResetFilters = () => {
@@ -146,10 +153,18 @@ export default function MenuPage({ onNotice }: MenuPageProps) {
           <ProductGrid
             products={filteredProducts}
             onCustomize={handleCustomize}
-            onQuickAdd={handleQuickAdd}
+            onQuickAdd={onQuickAdd}
           />
         )}
       </div>
+
+      {selectedProduct && (
+        <ProductDetailModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+          onAddToCart={handleAddConfiguredItem}
+        />
+      )}
 
       {/* Fallback Toast Notice if onNotice is not provided */}
       {!onNotice && (

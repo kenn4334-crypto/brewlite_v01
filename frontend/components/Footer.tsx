@@ -13,7 +13,7 @@ export default function Footer() {
           <span>•</span>
           <span>Công nghệ Phần mềm</span>
           <span>•</span>
-          <span className="text-amber-700 font-medium">Sprint 1 / Task 3</span>
+          <span className="text-amber-700 font-medium">Sprint 1 / Tasks 4–5</span>
         </div>
       </div>
     </footer>

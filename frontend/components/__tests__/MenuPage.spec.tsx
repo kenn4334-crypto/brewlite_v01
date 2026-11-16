@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Product } from '../../types/product';
 import MenuPage from '../MenuPage';
 import Navbar from '../Navbar';
+import type { MenuPageProps } from '../MenuPage';
 
 const MOCK_MENU: Product[] = [
   {
@@ -33,6 +34,16 @@ const MOCK_MENU: Product[] = [
   },
 ];
 
+function renderMenu(props: Partial<MenuPageProps> = {}) {
+  return render(
+    <MenuPage
+      onAddToCart={props.onAddToCart ?? vi.fn()}
+      onQuickAdd={props.onQuickAdd ?? vi.fn()}
+      onNotice={props.onNotice}
+    />,
+  );
+}
+
 describe('MenuPage & Component UI Testing', () => {
   beforeEach(() => {
     vi.restoreAllMocks();
@@ -47,7 +58,7 @@ describe('MenuPage & Component UI Testing', () => {
       // Mock fetch never resolving immediately
       global.fetch = vi.fn().mockImplementation(() => new Promise(() => {}));
 
-      render(<MenuPage />);
+      renderMenu();
 
       // Check for loading skeleton status
       const skeleton = screen.getByRole('status', {
@@ -66,7 +77,7 @@ describe('MenuPage & Component UI Testing', () => {
         json: async () => MOCK_MENU,
       });
 
-      render(<MenuPage />);
+      renderMenu();
 
       // Wait for products to render
       await waitFor(() => {
@@ -94,7 +105,7 @@ describe('MenuPage & Component UI Testing', () => {
         });
       global.fetch = mockFetch;
 
-      render(<MenuPage />);
+      renderMenu();
 
       // Wait for error state
       await waitFor(() => {
@@ -129,7 +140,7 @@ describe('MenuPage & Component UI Testing', () => {
         json: async () => MOCK_MENU,
       });
 
-      render(<MenuPage />);
+      renderMenu();
 
       await waitFor(() => {
         expect(screen.getByText('Cà phê sữa đá')).toBeDefined();
@@ -161,7 +172,7 @@ describe('MenuPage & Component UI Testing', () => {
         json: async () => MOCK_MENU,
       });
 
-      render(<MenuPage />);
+      renderMenu();
 
       await waitFor(() => {
         expect(screen.getByText('Cà phê sữa đá')).toBeDefined();
@@ -189,16 +200,22 @@ describe('MenuPage & Component UI Testing', () => {
     });
   });
 
-  describe('5. Interactive Action Scope Notices (Customize & Quick Add)', () => {
-    it('should trigger appropriate notices when Customize or Quick Add are clicked', async () => {
+  describe('5. Product customization and quick add', () => {
+    it('should calculate customization price and send the selected options to the cart', async () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => MOCK_MENU,
       });
 
+      const addToCartSpy = vi.fn();
+      const quickAddSpy = vi.fn();
       const noticeSpy = vi.fn();
-      render(<MenuPage onNotice={noticeSpy} />);
+      renderMenu({
+        onAddToCart: addToCartSpy,
+        onQuickAdd: quickAddSpy,
+        onNotice: noticeSpy,
+      });
 
       await waitFor(() => {
         expect(screen.getByText('Cà phê sữa đá')).toBeDefined();
@@ -210,19 +227,36 @@ describe('MenuPage & Component UI Testing', () => {
       });
       fireEvent.click(customizeButtons[0]);
 
+      expect(
+        screen.getByRole('dialog', { name: /Cà phê sữa đá/i }),
+      ).toBeDefined();
+      fireEvent.click(screen.getByRole('radio', { name: 'Size L' }));
+      fireEvent.click(
+        screen.getByRole('checkbox', { name: /Trân châu trắng/i }),
+      );
+      fireEvent.click(screen.getByRole('button', { name: 'Tăng số lượng' }));
+      expect(screen.getByText('90.000đ')).toBeDefined();
+      fireEvent.click(screen.getByRole('button', { name: 'Thêm vào giỏ' }));
+
+      expect(addToCartSpy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          product: MOCK_MENU[0],
+          size: 'L',
+          quantity: 2,
+          toppings: [
+            expect.objectContaining({ id: 'white-pearls', price: 5000 }),
+          ],
+        }),
+      );
       expect(noticeSpy).toHaveBeenCalledWith(
-        expect.stringContaining('Task 4'),
+        expect.stringContaining('Đã thêm 2'),
       );
 
-      // Click Quick Add
       const addButtons = screen.getAllByRole('button', {
         name: /Thêm nhanh/i,
       });
       fireEvent.click(addButtons[0]);
-
-      expect(noticeSpy).toHaveBeenCalledWith(
-        expect.stringContaining('Task 5'),
-      );
+      expect(quickAddSpy).toHaveBeenCalledWith(MOCK_MENU[0]);
     });
   });
 
@@ -242,7 +276,7 @@ describe('MenuPage & Component UI Testing', () => {
 
       // Cart
       const cartButton = screen.getByRole('button', {
-        name: /Giỏ hàng - Sắp ra mắt ở Task 5/i,
+        name: /Giỏ hàng \(0 món\)/i,
       });
       fireEvent.click(cartButton);
       expect(onCartClick).toHaveBeenCalledTimes(1);
