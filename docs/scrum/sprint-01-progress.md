@@ -5,6 +5,7 @@
 | **Dự án** | BrewLite (Assignment 1) |
 | **Sprint** | Sprint 1 — Nền tảng & Hiển thị Menu |
 | **Nhánh chính** | [`main`](https://github.com/vohuunghiaah/brewlite_v01/tree/main) |
+| **GitHub Project Board** | [**`BrewLite ASM1 — Scrum Management` (Project #3)**](https://github.com/users/vohuunghiaah/projects/3) |
 | **Thời điểm lập hồ sơ** | Sau khi phục hồi và merge thành công Task 3 (PR #6), trước khi bắt đầu Task 4 |
 | **Người thực hiện** | Scrum Technical Lead & Engineering Team |
 
@@ -14,10 +15,10 @@
 
 ```text
 [Sprint 1 Scope: 4 Tasks]
-├── [DONE]  Task 1: Khởi tạo dự án & Monorepo (PR #1 - a60b9d6)
-├── [DONE]  Task 2: API danh sách sản phẩm (PR #2 - c72c1c1)
-├── [DONE]  Task 3: Trang Menu Frontend (PR #6 - 6737476)
-└── [TO DO] Task 4: Chi tiết & tùy chọn sản phẩm (Chưa bắt đầu)
+├── [DONE]  Task 1: Khởi tạo dự án & Monorepo (Issue #8 - PR #1 - a60b9d6)
+├── [DONE]  Task 2: API danh sách sản phẩm (Issue #9 - PR #2 - c72c1c1)
+├── [DONE]  Task 3: Trang Menu Frontend (Issue #10 - PR #6 - 6737476)
+└── [TO DO] Task 4: Chi tiết & tùy chọn sản phẩm (Issue #11 - Chưa bắt đầu)
 ```
 
 - **Tỷ lệ hoàn thành công việc Sprint 1:** **75% (3/4 Tasks đã hoàn tất và tích hợp vào `main`)**.

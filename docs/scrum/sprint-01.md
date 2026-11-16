@@ -5,11 +5,12 @@
 | **Sprint** | Sprint 1 — Nền tảng & Hiển thị Menu (Foundation & Menu Showcase) |
 | **Dự án** | BrewLite (Assignment 1) |
 | **Repository** | [`vohuunghiaah/brewlite_v01`](https://github.com/vohuunghiaah/brewlite_v01) |
+| **GitHub Project Board** | [**`BrewLite ASM1 — Scrum Management` (Project #3)**](https://github.com/users/vohuunghiaah/projects/3) |
 | **Mục tiêu Sprint (Sprint Goal)** | Xây dựng nền tảng Monorepo chuẩn mực (Frontend + Backend), cung cấp API thực đơn và hiển thị giao diện Menu sản phẩm cùng hộp thoại tùy biến theo thiết kế chuẩn Figma Make App. |
 | **Phạm vi công việc** | Task 1, Task 2, Task 3, Task 4 |
 | **Trạng thái Sprint** | **ĐANG TIẾN HÀNH (IN PROGRESS)** |
-| **Thời gian bắt đầu / kết thúc** | **Chưa xác nhận** *(Xem mục đề xuất timebox bên dưới)* |
-| **Tài liệu tham chiếu** | [product-backlog.md](product-backlog.md), [definition-of-done.md](definition-of-done.md), [sprint-01-progress.md](sprint-01-progress.md) |
+| **Thời gian bắt đầu / kết thúc** | **Chưa xác nhận** *(Lịch đề xuất trên GitHub Iterations: 16/11/2026 – 29/11/2026)* |
+| **Tài liệu tham chiếu** | [product-backlog.md](product-backlog.md), [definition-of-done.md](definition-of-done.md), [sprint-01-progress.md](sprint-01-progress.md), [github-project-tracking.md](github-project-tracking.md) |
 
 ---
 
@@ -23,19 +24,19 @@
 
 ### Đề xuất Timebox cho Sprint 1:
 - **Tình trạng:** Thời điểm bắt đầu chính thức của đồ án chưa được nhóm chốt bằng văn bản cụ thể.
-- **Đề xuất kỹ thuật:** Timebox chuẩn cho Sprint 1 thường là 2 tuần. Với 3/4 khối lượng công việc đã hoàn thành, thời gian ước tính hợp lý để hoàn thành Task 4, kiểm thử toàn diện và đóng Sprint 1 là **khoảng 2 – 3 ngày làm việc tập trung**.
+- **Đề xuất kỹ thuật:** Timebox chuẩn cho Sprint 1 là 2 tuần (16/11/2026 – 29/11/2026 trên GitHub Project Iteration). Với 3/4 khối lượng công việc đã hoàn thành, thời gian ước tính hợp lý để hoàn thành Task 4, kiểm thử toàn diện và đóng Sprint 1 là **khoảng 2 – 3 ngày làm việc tập trung**.
 - *Ghi chú:* Đề xuất này là định hướng kế hoạch, tuyệt đối không trình bày như một lịch trình đã diễn ra.
 
 ---
 
 ## 2. Sprint Backlog & Trạng thái chi tiết (Task 1 – Task 4)
 
-| Mã Task | Tên công việc | Hạng mục kỹ thuật | Trạng thái | Bằng chứng Git / PR |
-|:---:|---|---|:---:|---|
-| **TASK-01** | Khởi tạo dự án và cấu trúc | Monorepo Next.js + NestJS, kiểm tra sức khỏe `GET /` | **DONE** | [PR #1](https://github.com/vohuunghiaah/brewlite_v01/pull/1) (`a60b9d6`) |
-| **TASK-02** | API danh sách sản phẩm | NestJS `GET /products`, dữ liệu mẫu, SVG vector images | **DONE** | [PR #2](https://github.com/vohuunghiaah/brewlite_v01/pull/2) (`c72c1c1`) |
-| **TASK-03** | Trang Menu Frontend | Next.js gọi API, lưới món, 4 trạng thái UI, responsive | **DONE** | [PR #6](https://github.com/vohuunghiaah/brewlite_v01/pull/6) (`6737476`) |
-| **TASK-04** | Chi tiết & tùy chọn sản phẩm | Modal/trang chi tiết: chọn Size S/M/L, Topping, tính giá động | **TO DO** | Chưa bắt đầu |
+| Mã Task | GitHub Issue | Tên công việc | Hạng mục kỹ thuật | Trạng thái | Bằng chứng Git / PR |
+|:---:|:---:|---|---|:---:|---|
+| **TASK-01** | [#8](https://github.com/vohuunghiaah/brewlite_v01/issues/8) | Khởi tạo dự án và cấu trúc | Monorepo Next.js + NestJS, kiểm tra sức khỏe `GET /` | **DONE** | [PR #1](https://github.com/vohuunghiaah/brewlite_v01/pull/1) (`a60b9d6`) |
+| **TASK-02** | [#9](https://github.com/vohuunghiaah/brewlite_v01/issues/9) | API danh sách sản phẩm | NestJS `GET /products`, dữ liệu mẫu, SVG vector images | **DONE** | [PR #2](https://github.com/vohuunghiaah/brewlite_v01/pull/2) (`c72c1c1`) |
+| **TASK-03** | [#10](https://github.com/vohuunghiaah/brewlite_v01/issues/10) | Trang Menu Frontend | Next.js gọi API, lưới món, 4 trạng thái UI, responsive | **DONE** | [PR #6](https://github.com/vohuunghiaah/brewlite_v01/pull/6) (`6737476`) |
+| **TASK-04** | [#11](https://github.com/vohuunghiaah/brewlite_v01/issues/11) | Chi tiết & tùy chọn sản phẩm | Modal/trang chi tiết: chọn Size S/M/L, Topping, tính giá động | **TO DO** | Chưa bắt đầu |
 
 ---
 

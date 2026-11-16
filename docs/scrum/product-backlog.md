@@ -5,8 +5,9 @@
 | **Dự án** | BrewLite — Hệ thống đặt cà phê và thanh toán không dùng tiền mặt (Cashless Coffee POS) |
 | **Học phần** | Công nghệ Phần mềm — Khoa Công nghệ Thông tin, Trường Đại học Sài Gòn (HK I, 2026–2027) |
 | **Repository duy nhất** | [`vohuunghiaah/brewlite_v01`](https://github.com/vohuunghiaah/brewlite_v01) |
-| **Khung quản lý** | Agile Scrum (Kế hoạch 3 Sprints gợi ý theo đề bài Assignment 1) |
-| **Tài liệu tham chiếu** | [README.md](../../README.md), [TASK-01.md](../TASK-01.md), [TASK-02.md](../TASK-02.md), [TASK-03.md](../TASK-03.md) |
+| **GitHub Project Board** | [**`BrewLite ASM1 — Scrum Management` (Project #3)**](https://github.com/users/vohuunghiaah/projects/3) |
+| **Khung quản lý** | Agile Scrum (Kế hoạch 3 Sprints quản lý bằng GitHub Projects Iterations) |
+| **Tài liệu tham chiếu** | [README.md](../../README.md), [TASK-01.md](../TASK-01.md), [TASK-02.md](../TASK-02.md), [TASK-03.md](../TASK-03.md), [github-project-tracking.md](github-project-tracking.md) |
 | **Trạng thái tài liệu** | Thiết lập tại thời điểm giữa Sprint 1 (sau hoàn thành Task 1, 2, 3 và trước khi bắt đầu Task 4) |
 
 ---
@@ -30,18 +31,18 @@
 > - Các trường **Ước lượng (Story Points / Giờ công)** và **Người phụ trách** được ghi rõ là **"Chưa xác định"** do nhóm chưa thực hiện phiên Estimation chính thức trong quá khứ. Tuyệt đối không tự suy diễn hoặc bịa đặt số liệu.
 > - Trạng thái chỉ đánh dấu **DONE** khi đã đáp ứng đầy đủ Definition of Done và có Pull Request đã merge vào nhánh chính trên GitHub.
 
-| ID | Tên hạng mục (Task / Story) | Sprint dự kiến | Ưu tiên | Trạng thái | Ước lượng | Người phụ trách | Bằng chứng nghiệm thu / PR |
-|:---:|---|:---:|:---:|:---:|:---:|:---:|---|
-| **TASK-01** | **Khởi tạo dự án và cấu trúc Monorepo** | Sprint 1 | Must Have (P1) | **DONE** | Chưa xác định | Chưa xác định | [PR #1](https://github.com/vohuunghiaah/brewlite_v01/pull/1) — [TASK-01.md](../TASK-01.md) |
-| **TASK-02** | **API danh sách sản phẩm (NestJS GET /products)** | Sprint 1 | Must Have (P1) | **DONE** | Chưa xác định | Chưa xác định | [PR #2](https://github.com/vohuunghiaah/brewlite_v01/pull/2) — [TASK-02.md](../TASK-02.md) |
-| **TASK-03** | **Trang Menu Frontend (Next.js gọi /products)** | Sprint 1 | Must Have (P1) | **DONE** | Chưa xác định | Chưa xác định | [PR #6](https://github.com/vohuunghiaah/brewlite_v01/pull/6) (khôi phục từ PR #4) — [TASK-03.md](../TASK-03.md) |
-| **TASK-04** | **Chi tiết & tùy chọn sản phẩm (Size & Topping)** | Sprint 1 | Must Have (P1) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
-| **TASK-05** | **Giỏ hàng (Cart State Management)** | Sprint 2 | Must Have (P1) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
-| **TASK-06** | **API tạo đơn hàng (NestJS POST /orders)** | Sprint 2 | Must Have (P1) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
-| **TASK-07** | **Đăng ký / Đăng nhập (Auth JWT & bcrypt)** | Sprint 2 | Should Have (P2) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
-| **TASK-08** | **Thanh toán không tiền mặt (Mock Payment Gateway)** | Sprint 3 | Must Have (P1) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
-| **TASK-09** | **Xác nhận đơn & Docker hóa hệ thống** | Sprint 3 | Should Have (P2) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
-| **TASK-10** | **Nghiệp vụ nâng cao (State Machine, Idempotent, Inventory)** | Sprint 3 | Could Have (P3) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
+| ID | Tên hạng mục (Task / Story) | GitHub Issue | Sprint dự kiến | Ưu tiên | Trạng thái | Ước lượng | Người phụ trách | Bằng chứng nghiệm thu / PR |
+|:---:|---|:---:|:---:|:---:|:---:|:---:|:---:|---|
+| **TASK-01** | **Khởi tạo dự án và cấu trúc Monorepo** | [#8](https://github.com/vohuunghiaah/brewlite_v01/issues/8) | Sprint 1 | Must Have (P1) | **DONE** | Chưa xác định | Chưa xác định | [PR #1](https://github.com/vohuunghiaah/brewlite_v01/pull/1) — [TASK-01.md](../TASK-01.md) |
+| **TASK-02** | **API danh sách sản phẩm (NestJS GET /products)** | [#9](https://github.com/vohuunghiaah/brewlite_v01/issues/9) | Sprint 1 | Must Have (P1) | **DONE** | Chưa xác định | Chưa xác định | [PR #2](https://github.com/vohuunghiaah/brewlite_v01/pull/2) — [TASK-02.md](../TASK-02.md) |
+| **TASK-03** | **Trang Menu Frontend (Next.js gọi /products)** | [#10](https://github.com/vohuunghiaah/brewlite_v01/issues/10) | Sprint 1 | Must Have (P1) | **DONE** | Chưa xác định | Chưa xác định | [PR #6](https://github.com/vohuunghiaah/brewlite_v01/pull/6) (khôi phục từ PR #4) — [TASK-03.md](../TASK-03.md) |
+| **TASK-04** | **Chi tiết & tùy chọn sản phẩm (Size & Topping)** | [#11](https://github.com/vohuunghiaah/brewlite_v01/issues/11) | Sprint 1 | Must Have (P1) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
+| **TASK-05** | **Giỏ hàng (Cart State Management)** | [#12](https://github.com/vohuunghiaah/brewlite_v01/issues/12) | Sprint 2 | Must Have (P1) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
+| **TASK-06** | **API tạo đơn hàng (NestJS POST /orders)** | [#13](https://github.com/vohuunghiaah/brewlite_v01/issues/13) | Sprint 2 | Must Have (P1) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
+| **TASK-07** | **Đăng ký / Đăng nhập (Auth JWT & bcrypt)** | [#14](https://github.com/vohuunghiaah/brewlite_v01/issues/14) | Sprint 2 | Should Have (P2) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
+| **TASK-08** | **Thanh toán không tiền mặt (Mock Payment Gateway)** | [#15](https://github.com/vohuunghiaah/brewlite_v01/issues/15) | Sprint 3 | Must Have (P1) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
+| **TASK-09** | **Xác nhận đơn & Docker hóa hệ thống** | [#16](https://github.com/vohuunghiaah/brewlite_v01/issues/16) | Sprint 3 | Should Have (P2) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
+| **TASK-10** | **Nghiệp vụ nâng cao (State Machine, Idempotent, Inventory)** | [#17](https://github.com/vohuunghiaah/brewlite_v01/issues/17) | Sprint 3 | Could Have (P3) | **TO DO** | Chưa xác định | Chưa xác định | Chưa bắt đầu |
 
 ---
 
